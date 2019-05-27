@@ -1,0 +1,57 @@
+h1 {
+  font-size: 100px;
+  color:navy;
+  text-align: center;
+  text-decoration: underline;
+}
+
+h2 {
+  text-align: center;
+}
+
+span {
+  background: blue;
+}
+
+div {
+
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.menu_options {
+  margin: auto;
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+
+img {
+  float: left;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 40%;
+  height: 20em;
+  margin-left: 5%;
+  margin-right: 5%;	
+  padding: 0;
+  border-radius: 50%;
+  border: 3px solid navy;
+}
+
+.rest {
+  display: inline-block;
+  position: relative;
+  left: 19%;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+
+.sights {
+  display: inline-block;
+  position: relative;
+  left: 63%;
+  margin-top: 2px;
+  text-decoration: underline;
+}
