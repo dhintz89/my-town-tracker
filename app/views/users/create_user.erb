@@ -1,5 +1,10 @@
-<form action="/users/signup" method="post">
-  <input type='text' name=[user][username] placeholder="username">
-  <input type='password' name=[user][password] placeholder="password">
+<h2><u>Sign Up</u></h2>
+<br>
+<form action="/users" method="post">
+  <input type='text' name=[user][username] placeholder="username (required)">
+  <input type='password' name=[user][password] placeholder="password (required)"><br>
+  <input type='text' name=[user][name] placeholder="Your Name">
+  <input type='text' name=[user][email] placeholder="Email Address">
+  <input type='text' name=[user][city] placeholder="Your City">
   <input type="submit" value="Sign Me Up!">
 </form>
