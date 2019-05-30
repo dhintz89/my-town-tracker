@@ -1,0 +1,11 @@
+<h3><u>My Places</u></h3>
+
+<form action="/places/new">
+  <input type="submit" value="New Place">
+</form>
+
+<ul>
+  <% @places.each do |place| %>
+    <li><a href="/places/<%=place.id%>"><%= place.name %></a></li>
+  <% end %>
+</ul>

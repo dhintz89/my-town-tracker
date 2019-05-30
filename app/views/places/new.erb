@@ -1,0 +1,19 @@
+<form method="post" action="/places">
+  <input type="text" name=[place][name] placeholder="Place Name (required)">
+  <input type="text" name=[place][type] placeholder="Place Type">
+  <input type="text" name=[place][location] placeholder="Place Location">
+  <br>
+  <label for="[place][visited]">Have you visited?</label><input type="checkbox" name=[place][visited]>
+  
+  <label>Recommend For:</label>
+  <% User.recommendations.each do |rec| %>
+    <input type="checkbox" name= value="<%=rec.name%>">
+  <% end %>
+  <input type="text" name=[place][<%=rec.id%>] placeholder="New Recommendation">
+  
+  <br>
+  <input type="text" name=[place][tagline] placeholder="Tagline for Place">
+  <input type="text" name=[place][notes] placeholder="Other Notes">
+  
+  <input type="submit">
+</form>

@@ -10,18 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_020921) do
+ActiveRecord::Schema.define(version: 2019_05_30_185823) do
 
-  create_table "bus_recs", force: :cascade do |t|
-    t.integer "business_id"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "place_recs", force: :cascade do |t|
+    t.integer "place_id"
     t.integer "recommendation_id"
   end
 
-  create_table "businesses", force: :cascade do |t|
+  create_table "places", force: :cascade do |t|
     t.integer "user_id"
+    t.string "category_id"
     t.string "name"
-    t.string "type"
-    t.string "location"
+    t.string "street_address"
+    t.string "city"
+    t.string "state_abbr"
     t.integer "visited"
     t.string "tagline"
     t.string "notes"
