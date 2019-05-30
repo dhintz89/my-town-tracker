@@ -1,6 +1,9 @@
 class BusinessesController < ApplicationController
   
-  
+  get '/businesses' do
+    @businesses = Business.all
+    erb :"businesses/index"
+  end
   
   helpers do
     def logged_in?
