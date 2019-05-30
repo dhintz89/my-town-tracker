@@ -1,19 +1,29 @@
 <form method="post" action="/places">
+  General Info:
   <input type="text" name=[place][name] placeholder="Place Name (required)">
-  <input type="text" name=[place][type] placeholder="Place Type">
-  <input type="text" name=[place][location] placeholder="Place Location">
-  <br>
+  <!-- placeholder for Category --> 
+  <input type="text" name=[place][category] placeholder="Category Name">
   <label for="[place][visited]">Have you visited?</label><input type="checkbox" name=[place][visited]>
+  
+  Location Details:
+  <ul>
+    <li><input type="text" name=[place][street_address] placeholder="Street Address"></li>
+    <li><input type="text" name=[place][city] placeholder="City"></li>
+    <li><input type="text" name=[place][state_abbr] placeholder="State Abbreviation (ex. 'SC')"></li>
+  </ul>
+  <br>
   
   <label>Recommend For:</label>
   <% User.recommendations.each do |rec| %>
-    <input type="checkbox" name= value="<%=rec.name%>">
+    <label><%=rec.name%></label>
+    <input type="checkbox" name=[place][][recommendation] value="<%=rec.id%>">
   <% end %>
-  <input type="text" name=[place][<%=rec.id%>] placeholder="New Recommendation">
+  <input type="text" name=[place][recommendation]  placeholder="New Recommendation">
   
   <br>
+  Notes:
   <input type="text" name=[place][tagline] placeholder="Tagline for Place">
   <input type="text" name=[place][notes] placeholder="Other Notes">
   
-  <input type="submit">
+  <input type="submit" value="Create Place">
 </form>

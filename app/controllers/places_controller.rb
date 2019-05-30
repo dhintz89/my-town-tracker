@@ -10,19 +10,21 @@ class PlacesController < ApplicationController
   end
   
   post '/places' do
-    @business = Place.new(params[:business])
+    @place = Place.new(name: params[:place][:name])
+    @place.category = Category.find_or_create_by(name: params[:place][:category])
+    # params[:place][:recommendation].each {|rec_id| @place.recommendations << Recommendation.find_by_id(rec_id)}
     binding.pry
-    redirect "/places/#{@business.id}"
+    redirect "/places/#{@place.id}"
   end
   
   get '/places/:id' do
-    @business = Place.find(params[:id])
+    @place = Place.find(params[:id])
     erb :"places/show"
   end
   
   post '/places/:id/delete' do
-    @business = Place.find(params[:id])
-    @business.destroy
+    @place = Place.find(params[:id])
+    @place.destroy
     redirect "/places"
   end
   
