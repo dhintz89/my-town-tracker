@@ -1,2 +1,15 @@
-User <%= @user.username %> successfully created!
+Welcome <%= @user.name %>!
 
+<form action="/businesses/new">
+  <input type="submit" value="New Business">
+</form>
+
+<form action="/businesses">
+  <input type="submit" value="View My Businesses">
+</form>
+
+<br>
+
+<form action="/logout">
+  <input type="submit" value="Log Out">
+</form>

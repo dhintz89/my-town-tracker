@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  get '/users/signup' do
+  get '/signup' do
     erb :"users/create_user"
   end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
   end
   
-  get '/users/login' do
+  get '/login' do
     erb :"users/login"
   end
   
@@ -35,7 +35,6 @@ class UsersController < ApplicationController
   
   get "/users/:id" do
     @user = User.find(params[:id])
-    binding.pry
     erb :"users/show"
   end
   
