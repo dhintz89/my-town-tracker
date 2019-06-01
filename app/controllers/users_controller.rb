@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:message] = "User successfully created"
       redirect "/users/#{@user.id}"
     else
-      flash[:message] = "Problem Creating New User."
+      flash[:message] = "Problem creating new user. Please try again."
       redirect "/signup"
     end
   end
@@ -26,12 +26,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else
+      flash[:message] = "Incorrect username or password. Please try again."
       redirect "/login"
     end
   end
 
   get '/logout' do
     session.clear
+    flash[:message] = "Successfully logged out"
     redirect '/'
   end
   

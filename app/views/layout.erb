@@ -6,6 +6,9 @@
   <body>
 
     <div>
+      <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %>
       <h1>My Town Tracker</h1>
       <%= yield %>
     </div>

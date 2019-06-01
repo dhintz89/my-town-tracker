@@ -13,7 +13,6 @@ class PlacesController < ApplicationController
     @place = Place.new(name: params[:place][:name])
     @place.category = Category.find_or_create_by(name: params[:place][:category])
     # params[:place][:recommendation].each {|rec_id| @place.recommendations << Recommendation.find_by_id(rec_id)}
-    binding.pry
     redirect "/places/#{@place.id}"
   end
   
@@ -25,6 +24,7 @@ class PlacesController < ApplicationController
   post '/places/:id/delete' do
     @place = Place.find(params[:id])
     @place.destroy
+    flash[:message] = "Selected place has been deleted."
     redirect "/places"
   end
   
