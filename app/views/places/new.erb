@@ -1,33 +1,54 @@
+<h2>Create New Place</h2>
+
+<br>
+
 <form method="post" action="/places">
-  General Info:
-  <input type="text" name="place[name]" placeholder="Place Name (required)">
-  Select a Category:
-  <% @categories.each do |cat| %>
-    <p><input type="radio" name="place[category_id]" value="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input></p>
-  <% end %>
-  <label for="category[name]">Or Create a New Category</label>
-  <input type="text" name="category[name]" placeholder="Category Name">
+  <h2><u>General Info</u></h2>
   
-  <label for="place[visited]">Have you visited?</label>
-  <input type="checkbox" name="place[visited]" value="true">
+  <p><input type="text" name="place[name]" placeholder="Place Name (required)"></p>
   
-  Location Details:
-    <p><input type="text" name="place[street_address]" placeholder="Street Address"></p>
-    <p><input type="text" name="place[city]" placeholder="City"></p>
-    <p><input type="text" name="place[state_abbr]" placeholder="State Abbreviation (ex. 'SC')"></p>
   <br>
+  
+  <label>Select a Category</label>
+  <% @categories.each do |cat| %>
+    <p><input type="radio" name="place[category_id]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input></p>
+  <% end %>
+  <p><label for="category[name]">Or Create a New Category: </label>
+  <input type="text" name="category[name]" placeholder="Category Name"></p>
+  
+  <br>
+  
+  <label>Location Details:</label>
+  <p><input type="text" name="place[street_address]" placeholder="Street Address"></p>
+  <p><input type="text" name="place[city]" placeholder="City"></p>
+  <p><input type="text" name="place[state_abbr]" placeholder="State (ex. 'SC')"></p>
+  
+  <br>  
+  
+  <label>Have you been here?</label>
+  <input type="radio" name="place[visited]" value="1" id="1"><label for="1">Yes</label></input>
+  <input type="radio" name="place[visited]" value="0" id="0"><label for="0">No</label></input>
+  
+  <br>
+  <br>
+  
+  <h2><u>Notes</u></h2>
   
   <label>Recommend For:</label>
   <% @recommendations.each do |rec| %>
     <p><input type="checkbox" name="place[recommendation_ids][]" value="<%=rec.id%>"><label><%=rec.name%></label></input></p>
   <% end %>
-  <label for="recommendation[name]">And/Or Create a New Recommendation</label>
-  <input type="text" name="recommendation[name]" placeholder="Recommendation Name">
+  <p><label for="recommendation[name]">And/Or Create a New Recommendation: </label>
+  <input type="text" name="recommendation[name]" placeholder="Recommendation Name"></p>
   
   <br>
-  Notes:
-  <input type="text" name="place[tagline]" placeholder="Tagline for Place">
-  <input type="text" name="place[notes]" placeholder="Other Notes">
+  
+  <p><label for="place[tagline]">Enter a short tagline for this place.</label>
+  <input type="text" name="place[tagline]" placeholder="Tagline for Place"></p>
+  <p><label for="place[notes]">Additional Notes</label>
+  <input type="text" name="place[notes]" placeholder="Other Notes"></p>
+  
+  <br>
   
   <input type="submit" value="Create Place">
 </form>
