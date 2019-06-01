@@ -30,7 +30,10 @@ class PlacesController < ApplicationController
   
   get '/places/:id/edit' do
     @place = Place.find(params[:id])
+    @recommendations = Recommendation.all
+    @categories = Category.all
     erb :"places/edit"
+  end
   
   patch '/places/:id' do
     @place = Place.find(params[:id])
