@@ -15,4 +15,4 @@ gem 'require_all'
 gem 'tux'
 gem 'shotgun'
 gem 'bcrypt'
-
+gem 'rack-flash3'

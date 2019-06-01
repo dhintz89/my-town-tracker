@@ -5,11 +5,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(params[:user])
-    if @user.username != "" && @user.save
+    @user = User.new(params[:user])
+    if @user.valid? && @user.save
       session[:user_id] = @user.id
+      flash[:message] = "User successfully created"
       redirect "/users/#{@user.id}"
     else
+      flash[:message] = "Problem Creating New User."
       redirect "/signup"
     end
   end

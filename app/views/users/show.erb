@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 Welcome <%= @user.name %>!
 
 <form action="/places/new">
