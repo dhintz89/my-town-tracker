@@ -28,10 +28,28 @@ class PlacesController < ApplicationController
     erb :"places/show"
   end
   
+  get '/places/:id/edit' do
+    @place = Place.find(params[:id])
+    erb :"places/edit"
+  
+  patch '/places/:id' do
+    @place = Place.find(params[:id])
+    @place.update(params[:place])
+    if !params[:category][:name].empty?
+      @place.category = Category.find_or_create_by(name: params[:category][:name])
+      @place.save
+    end
+    if !params[:recommendation][:name].empty?
+      @place.recommendations << Recommendation.find_or_create_by(name: params[:recommendation][:name])
+    end
+    flash[:message] = "#{@place.name} updated successfully"
+    redirect "/places/#{@place.id}"    
+  end
+  
   post '/places/:id/delete' do
     @place = Place.find(params[:id])
     @place.destroy
-    flash[:message] = "Selected place has been deleted."
+    flash[:message] = "#{@place.name} has been deleted."
     redirect "/places"
   end
   

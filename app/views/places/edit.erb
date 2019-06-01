@@ -1,0 +1,55 @@
+<h2>Edit <%= @place.name %></h2>
+
+<br>
+
+<form method="post" action="/places/<%=@place.id%>">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <h2><u>General Info</u></h2>
+  
+  <p><input type="text" name="place[name]" value="<%=@place.name%>"></p>
+  
+  <br>
+  
+  <label>Select a Category</label>
+  <% @categories.each do |cat| %>
+    <p><input type="radio" name="place[category_id]" value="<%=cat.id%>" id="<%=cat.id%>" <%='checked' if @place.category == cat%>><label for="<%=cat.id%>"><%=cat.name%></label></input></p>
+  <% end %>
+  <p><label for="category[name]">Or Create a New Category: </label>
+  <input type="text" name="category[name]" placeholder="Category Name"></p>
+  
+  <br>
+  
+  <label>Location Details:</label>
+  <p><input type="text" name="place[street_address]" value="<%=@place.street_address%>"></p>
+  <p><input type="text" name="place[city]" value="<%=@place.city%>"></p>
+  <p><input type="text" name="place[state_abbr]" value="<%=@place.state%>"></p>
+  
+  <br>  
+  
+  <label>Have you been here?</label>
+  <input type="radio" name="place[visited]" value="1" id="1" <%='checked' if @place.visited == 1%>><label for="1">Yes</label></input>
+  <input type="radio" name="place[visited]" value="0" id="0" <%='checked' if @place.visited == 0%>><label for="0">No</label></input>
+  
+  <br>
+  <br>
+  
+  <h2><u>Notes</u></h2>
+  
+  <label>Recommend For:</label>
+  <% @recommendations.each do |rec| %>
+    <p><input type="checkbox" name="place[recommendation_ids][]" value="<%=rec.id%>" <%='checked' if @place.recommendations.include?(rec)%>><label><%=rec.name%></label></input></p>
+  <% end %>
+  <p><label for="recommendation[name]">And/Or Create a New Recommendation: </label>
+  <input type="text" name="recommendation[name]" placeholder="Recommendation Name"></p>
+  
+  <br>
+  
+  <p><label for="place[tagline]">Enter a short tagline for this place.</label>
+  <input type="text" name="place[tagline]" value="<%=@place.tagline%>"></p>
+  <p><label for="place[notes]">Additional Notes</label>
+  <input type="text" name="place[notes]" value="<%=@place.notes%>"></p>
+  
+  <br>
+  
+  <input type="submit" value="Edit Place">
+</form>
