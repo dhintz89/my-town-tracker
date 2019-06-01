@@ -1,29 +1,33 @@
 <form method="post" action="/places">
   General Info:
-  <input type="text" name=[place][name] placeholder="Place Name (required)">
-  <!-- placeholder for Category --> 
-  <input type="text" name=[place][category] placeholder="Category Name">
-  <label for="[place][visited]">Have you visited?</label><input type="checkbox" name=[place][visited]>
+  <input type="text" name="place[name]" placeholder="Place Name (required)">
+  Select a Category:
+  <% @categories.each do |cat| %>
+    <p><input type="radio" name="place[category_id]" value="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input></p>
+  <% end %>
+  <label for="category[name]">Or Create a New Category</label>
+  <input type="text" name="category[name]" placeholder="Category Name">
+  
+  <label for="place[visited]">Have you visited?</label>
+  <input type="checkbox" name="place[visited]" value="true">
   
   Location Details:
-  <ul>
-    <li><input type="text" name=[place][street_address] placeholder="Street Address"></li>
-    <li><input type="text" name=[place][city] placeholder="City"></li>
-    <li><input type="text" name=[place][state_abbr] placeholder="State Abbreviation (ex. 'SC')"></li>
-  </ul>
+    <p><input type="text" name="place[street_address]" placeholder="Street Address"></p>
+    <p><input type="text" name="place[city]" placeholder="City"></p>
+    <p><input type="text" name="place[state_abbr]" placeholder="State Abbreviation (ex. 'SC')"></p>
   <br>
   
   <label>Recommend For:</label>
-  <% User.recommendations.each do |rec| %>
-    <label><%=rec.name%></label>
-    <input type="checkbox" name=[place][][recommendation] value="<%=rec.id%>">
+  <% @recommendations.each do |rec| %>
+    <p><input type="checkbox" name="place[recommendation_ids][]" value="<%=rec.id%>"><label><%=rec.name%></label></input></p>
   <% end %>
-  <input type="text" name=[place][recommendation]  placeholder="New Recommendation">
+  <label for="recommendation[name]">And/Or Create a New Recommendation</label>
+  <input type="text" name="recommendation[name]" placeholder="Recommendation Name">
   
   <br>
   Notes:
-  <input type="text" name=[place][tagline] placeholder="Tagline for Place">
-  <input type="text" name=[place][notes] placeholder="Other Notes">
+  <input type="text" name="place[tagline]" placeholder="Tagline for Place">
+  <input type="text" name="place[notes]" placeholder="Other Notes">
   
   <input type="submit" value="Create Place">
 </form>
