@@ -1,30 +1,41 @@
+<!--Title and Subtitle on same line (Title - Category)-->
 <h2><%=@place.name%></h2> <h5>- <%=Category.find(@place.category_id).name%></h5>
 <h5><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
 
-<h3><%=@place.tagline%></h3>
+<span class="tagline"><%=@place.tagline%></span>
 
 <br>
 <br>
 
-<%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
-
-<%=@place.notes%>
-
-<p><%= @place.visited==1 ? ("I"):("I'd")%> like to go here for:
-  <% @place.recommendations.each do |rec| %>
-    <% if !rec==@place.recommendations.last %>
-      <%=rec.name%>,
+<span>
+  <%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
+  
+  <p>
+    <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because it's:
+    <% if @place.recommendations.length > 1 %>
+      <% @place.recommendations.each do |rec| %>
+        <% if rec!=@place.recommendations.last %>
+          <%="#{rec.name}, "%>
+        <% else %>
+          <%="and #{rec.name}"%>
+        <% end %>
+      <% end %>
+    <% elsif @place.recommendations.length == 1 %>
+      <%= rec.name %>
     <% else %>
-      and <%=rec.name%>
+      a totally new place to see
     <% end %>
-  <% end %>
-</p>
+  </p>
+</span>
 <br>
-Also:
-<p><%=@place.notes%></p>
+
+<% if !@place.notes.empty? %>
+  <p>Also:<br>
+  <%=@place.notes%></p>
+<% end %>
 
 
 <form action="/places/<%=@place.id%>/delete" method="post">
   <input type="hidden" id="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Place">
+  <input type="submit" value="Delete <%=@place.name%>">
 </form>
