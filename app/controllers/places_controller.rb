@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
   get '/places' do
-    @places = Place.all
+    @places = current_user.places.all
     erb :"places/index"
   end
   
@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   
   post '/places' do
     @place = Place.create(params[:place])
+    @place.user_id = current_user.id
     if !params[:category][:name].empty?
       @place.category = Category.find_or_create_by(name: params[:category][:name])
       @place.save

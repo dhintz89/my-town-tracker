@@ -19,7 +19,7 @@
         <% end %>
       <% end %>
     <% elsif @place.recommendations.length == 1 %>
-      <%= rec.name %>
+      <%= @place.recommendations.first.name %>
     <% else %>
       a totally new place to see
     <% end %>
