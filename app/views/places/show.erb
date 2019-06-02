@@ -1,11 +1,27 @@
-<h3><%=@place.name%></h3>
-<% @place.attributes.each do |key, value| %>
-  <p><%= "#{key}: #{value}" %></p>
-<% end %>
+<h2><%=@place.name%></h2> <h5>- <%=Category.find(@place.category_id).name%></h5>
+<h5><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
 
+<h3><%=@place.tagline%></h3>
 
+<br>
+<br>
 
+<%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
 
+<%=@place.notes%>
+
+<p><%= @place.visited==1 ? ("I"):("I'd")%> like to go here for:
+  <% @place.recommendations.each do |rec| %>
+    <% if !rec==@place.recommendations.last %>
+      <%=rec.name%>,
+    <% else %>
+      and <%=rec.name%>
+    <% end %>
+  <% end %>
+</p>
+<br>
+Also:
+<p><%=@place.notes%></p>
 
 
 <form action="/places/<%=@place.id%>/delete" method="post">

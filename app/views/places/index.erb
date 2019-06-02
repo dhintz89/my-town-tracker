@@ -1,4 +1,4 @@
-<h3><u>My Places</u></h3>
+<h2>My Places</h2>
 
 <form action="/places/new">
   <input type="submit" value="New Place">
@@ -6,9 +6,7 @@
 
 <ul>
   <% @places.each do |place| %>
-    <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>
-      <br>
-      <%= place.tagline %><br>
+    <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a> - <%= place.tagline %><br>
       <%= place.category.name %><br>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
       Recommendations:
