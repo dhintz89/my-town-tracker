@@ -1,4 +1,7 @@
-<%=@place%>
+<h3><%=@place.name%></h3>
+<% @place.attributes.each do |key, value| %>
+  <p><%= "#{key}: #{value}" %></p>
+<% end %>
 
 
 

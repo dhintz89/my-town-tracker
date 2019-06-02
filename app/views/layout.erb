@@ -9,6 +9,11 @@
       <% if flash.has?(:message) %>
         <%= flash[:message] %>
       <% end %>
+      <% if logged_in? %>
+        <a href=<%= "/users/#{current_user.id}" %>>Home</a>
+      <% else %>
+        <a href="/">Home</a>
+      <% end %>
       <h1>My Town Tracker</h1>
       <%= yield %>
     </div>

@@ -6,6 +6,18 @@
 
 <ul>
   <% @places.each do |place| %>
-    <li><a href="/places/<%=place.id%>"><%= place.name %></a></li>
+    <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>
+      <br>
+      <%= place.tagline %><br>
+      <%= place.category.name %><br>
+      Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
+      Recommendations:
+      <ul>
+        <% place.recommendations.each do |rec| %>
+          <li><%=rec.name%></li>
+        <% end %>
+      </ul>
+    </li>
+    <br>
   <% end %>
 </ul>
