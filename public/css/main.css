@@ -33,6 +33,7 @@ footer {
 }
 
 h1 {
+  font-family: 'dancing script', cursive, serif;
   font-size: 3em;
   color: navy;
   text-align: center;
@@ -42,6 +43,7 @@ h1 {
 }
 
 nav {
+  color: black;
   font-size: 1em;
   margin: 0;
   padding: .8em 0 0 .5em;

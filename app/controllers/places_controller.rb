@@ -24,6 +24,17 @@ class PlacesController < ApplicationController
     redirect "/places/#{@place.id}"
   end
   
+  get '/places/filter' do
+    
+  end
+  
+  post '/places/filter' do 
+    # @visit_results = [match filter choice (yes/no)]
+    # @category_results = [match chosen category(s)]
+    # @recommendation_results = [match chosen recommendation(s)]
+    # @filter_results = [combine all three and flatten]
+  end
+  
   get '/places/:id' do
     @place = Place.find(params[:id])
     erb :"places/show"
