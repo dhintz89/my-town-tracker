@@ -5,27 +5,34 @@
     <title>My Town Tracker</title>
   </head>
   <body>
-    <div class="error">
-      <% if flash.has?(:message) %>
-        <%= flash[:message] %>
-      <% end %>
-    </div>
+    <span class="flex-container"> <!--structure for main page design-->
     
-    <header>
-      <h1>My Town Tracker</h1>
-      <nav>
-        <% if logged_in? %>
-          <a href=<%= "/users/#{current_user.id}" %>>Home</a>
-        <% else %>
-          <a href="/">Home</a>
+      <div class="error">
+        <% if flash.has?(:message) %>
+          <%= flash[:message] %>
         <% end %>
-        <a href="/places">My Places</a>
-      </nav>
-    </header>
-    
-    <div>
-      <%= yield %>
-    </div>
-    
+      </div>
+      
+      <header>
+        <h1>My Town Tracker</h1>
+        <nav>
+          <% if logged_in? %>
+            <a href=<%= "/users/#{current_user.id}" %>>Home</a>
+          <% else %>
+            <a href="/">Home</a>
+          <% end %>
+          <a href="/places">My Places</a>
+        </nav>
+      </header>
+      
+      <main>
+        <%= yield %>
+      </main>
+      
+      <footer>
+        
+      </footer>
+      
+    </span>
   </body>
 </html>
