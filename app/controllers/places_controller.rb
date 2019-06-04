@@ -24,22 +24,23 @@ class PlacesController < ApplicationController
     redirect "/places/#{@place.id}"
   end
   
-  # get '/places/filter' do
-  #   @recommendations = Recommendation.all
-  #   @categories = Category.all
-  #   erb :"places/filter"
-  # end
+  get '/places/filter' do
+    @recommendations = Recommendation.all
+    @categories = Category.all
+    erb :"places/filters"
+  end
   
-  # post '/places/filter' do 
-  #   if !visited.empty?
-  #     @visit_results = @places.collect {|pl| pl.visited==params[:visited]}
-  #   end
-  #   erb :'places/filtered_results'
+  post '/places/filter' do 
+    if !params[:visited].empty?
+      @visit_results = user_places.select {|pl| pl.visited==params[:visited].to_i}
+    end
 
-  #   # @category_results = [match chosen category(s)]
-  #   # @recommendation_results = [match chosen recommendation(s)]
-  #   # @filter_results = [combine all three and flatten]
-  # end
+    # @category_results = [match chosen category(s)]
+    # @recommendation_results = [match chosen recommendation(s)]
+    @filter_results = (@visit_results).uniq
+    binding.pry
+    erb :"places/show_filtered"
+  end
   
   get '/places/:id' do
     @place = Place.find(params[:id])

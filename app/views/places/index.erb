@@ -9,7 +9,7 @@
 </form>
 
 <ul class="indexList">
-  <% @places.each do |place| %>
+  <% user_places.each do |place| %>
     <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
       <%= place.category.name %><br>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>

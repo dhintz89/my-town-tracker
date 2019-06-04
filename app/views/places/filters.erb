@@ -14,6 +14,6 @@
   <% @recommendations.each do |rec| %>
     <input type="checkbox" name="recommendation_ids[]" value="<%=rec.id%>" id="<%=rec.id%>"><label for="<%=rec.id%>"><%=rec.name%></label></input>
   <% end %>
-  
-  <input type="submit" value="Filter Results"
+  <br>
+  <input type="submit" value="Filter Results">
 </form>
