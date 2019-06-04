@@ -1,13 +1,13 @@
 class PlacesController < ApplicationController
 
   get '/places' do
-    @places = current_user.places.all
     erb :"places/index"
   end
   
   get '/places/new' do
     @recommendations = Recommendation.all
     @categories = Category.all
+    binding.pry
     erb :"places/new"
   end
   
@@ -24,16 +24,22 @@ class PlacesController < ApplicationController
     redirect "/places/#{@place.id}"
   end
   
-  get '/places/filter' do
-    
-  end
+  # get '/places/filter' do
+  #   @recommendations = Recommendation.all
+  #   @categories = Category.all
+  #   erb :"places/filter"
+  # end
   
-  post '/places/filter' do 
-    # @visit_results = [match filter choice (yes/no)]
-    # @category_results = [match chosen category(s)]
-    # @recommendation_results = [match chosen recommendation(s)]
-    # @filter_results = [combine all three and flatten]
-  end
+  # post '/places/filter' do 
+  #   if !visited.empty?
+  #     @visit_results = @places.collect {|pl| pl.visited==params[:visited]}
+  #   end
+  #   erb :'places/filtered_results'
+
+  #   # @category_results = [match chosen category(s)]
+  #   # @recommendation_results = [match chosen recommendation(s)]
+  #   # @filter_results = [combine all three and flatten]
+  # end
   
   get '/places/:id' do
     @place = Place.find(params[:id])
@@ -75,6 +81,10 @@ class PlacesController < ApplicationController
     
     def current_user
       User.find(session[:user_id])
+    end
+    
+    def user_places
+      current_user.places.all
     end
   end
   

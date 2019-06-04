@@ -1,0 +1,19 @@
+<h2>Filter Options</h2>
+
+<form method='post' action='/places/filter'>
+  <h3>Filter by Visited</h3>
+  <input type="radio" name="visited" value="1" id="yes"><label for="yes">Visited</label>
+  <input type="radio" name="visited" value="0" id="no"><label for="no">Not Visited</label>
+  
+  <h3>Filter by Category(s)</h3>
+  <% @categories.each do |cat| %>
+    <input type="checkbox" name="category_ids[]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input>
+  <% end %>
+  
+  <h3>Filter by Recommendation(s)</h3>
+  <% @recommendations.each do |rec| %>
+    <input type="checkbox" name="recommendation_ids[]" value="<%=rec.id%>" id="<%=rec.id%>"><label for="<%=rec.id%>"><%=rec.name%></label></input>
+  <% end %>
+  
+  <input type="submit" value="Filter Results"
+</form>
