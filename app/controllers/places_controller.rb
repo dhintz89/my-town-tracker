@@ -38,7 +38,6 @@ class PlacesController < ApplicationController
     # @category_results = [match chosen category(s)]
     # @recommendation_results = [match chosen recommendation(s)]
     @filter_results = (@visit_results).uniq
-    binding.pry
     erb :"places/show_filtered"
   end
   
