@@ -10,6 +10,7 @@
 
 <ul class="indexList">
   <% user_places.each do |place| %>
+  <% binding.pry %>
     <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
       <%= place.category.name %><br>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>

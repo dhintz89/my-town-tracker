@@ -7,20 +7,18 @@ class PlacesController < ApplicationController
   get '/places/new' do
     @recommendations = Recommendation.all
     @categories = Category.all
-    binding.pry
     erb :"places/new"
   end
   
   post '/places' do
-    @place = Place.create(params[:place])
-    @place.user_id = current_user.id
+    @place = current_user.places.create(params[:place])
     if !params[:category][:name].empty?
       @place.category = Category.find_or_create_by(name: params[:category][:name])
-      @place.save
     end
     if !params[:recommendation][:name].empty?
       @place.recommendations << Recommendation.find_or_create_by(name: params[:recommendation][:name])
     end
+    @place.save
     redirect "/places/#{@place.id}"
   end
   
