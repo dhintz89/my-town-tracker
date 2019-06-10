@@ -31,15 +31,19 @@ class PlacesController < ApplicationController
   post '/places/filter' do 
     if params[:visited]
       @results = user_places.select {|pl| pl.visited==params[:visited].to_i}
+    else
+      @results = user_places
     end
 
     if params[:category_ids]
       @results.delete_if {|pl| params[:category_ids].index(pl.category.id.to_s)==nil}
     end
-    # if !params[:recommendation_ids].empty?
-    #   @recommendation_results = user_places.select {|pl| pl.recommmendations.include(params[:recommendation_ids].all)}
-    # end
-    # binding.pry
+    
+    if params[:recommendation_ids]
+      @results.keep_if {|pl|
+        params[:recommendation_ids].all? {|rec| pl.recommendations.ids.include?(rec.to_i)}
+      }
+    end
 
     @results
     erb :"places/show_filtered"
