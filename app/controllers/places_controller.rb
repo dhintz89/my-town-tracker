@@ -29,13 +29,24 @@ class PlacesController < ApplicationController
   end
   
   post '/places/filter' do 
-    if !params[:visited].empty?
+    @visit_results = []
+    @category_results = []
+    @recommendation_results = []
+    
+    if params[:visited]
       @visit_results = user_places.select {|pl| pl.visited==params[:visited].to_i}
     end
 
-    # @category_results = [match chosen category(s)]
-    # @recommendation_results = [match chosen recommendation(s)]
-    @filter_results = (@visit_results).uniq
+    # if params[:category_ids]
+    #   @category_results = user_places.select {|pl| pl.category.include(params[:category_ids[]].any}
+    # end
+    # binding.pry
+    # if !params[:recommendation_ids].empty?
+    #   @recommendation_results = user_places.select {|pl| pl.recommmendations.include(params[:recommendation_ids].all)}
+    # end
+    # binding.pry
+
+    @filter_results = (@visit_results + @category_results + @recommendation_results).uniq
     erb :"places/show_filtered"
   end
   
