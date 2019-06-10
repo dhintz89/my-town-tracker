@@ -45,14 +45,7 @@ img {
   text-decoration: underline;
 }
 
-.tagline {
-  background-color: #edefaf;
-  font: italic bold 3em 'Tangerine', cursive, serif;
-  color:black;
-  float: right;
-  border: 2px solid white;
-  box-shadow: -5px 6px 8px 4px #e8e8e8;
-}
+
 
 .indexList {
   
