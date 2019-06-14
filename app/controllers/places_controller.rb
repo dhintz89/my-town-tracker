@@ -5,8 +5,8 @@ class PlacesController < ApplicationController
   end
   
   get '/places/new' do
-    @recommendations = Recommendation.all
-    @categories = Category.all
+    @recommendations = current_user.recommendations.all.uniq
+    @categories = current_user.categories.all.uniq
     erb :"places/new"
   end
   
@@ -23,8 +23,8 @@ class PlacesController < ApplicationController
   end
   
   get '/places/filter' do
-    @recommendations = Recommendation.all
-    @categories = Category.all
+    @recommendations = current_user.recommendations.all.uniq
+    @categories = current_user.categories.all.uniq
     erb :"places/filters"
   end
   
@@ -56,8 +56,8 @@ class PlacesController < ApplicationController
   
   get '/places/:id/edit' do
     @place = Place.find(params[:id])
-    @recommendations = Recommendation.all
-    @categories = Category.all
+    @recommendations = current_user.recommendations.all.uniq
+    @categories = current_user.categories.all.uniq
     erb :"places/edit"
   end
   
