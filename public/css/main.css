@@ -9,11 +9,16 @@ html, body {
   color: white;
 }
 
-a {
+a:link {
   color: #10afcb;
 }
 
-a
+a:visited {
+  color: #6a0080;
+}
+
+
+
 .flex-container {
   background-color: rgba(84, 84, 84, 0.85);
   display: flex;
@@ -83,4 +88,8 @@ nav {
 
 .button {
   display: inline;
+}
+
+#oneline_inst {
+  margin-left: 4%;
 }
