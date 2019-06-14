@@ -67,7 +67,12 @@ class PlacesController < ApplicationController
   get '/places/:id' do
     if logged_in?
       @place = Place.find(params[:id])
-      erb :"places/show"
+      if user_places.include?(@place)
+        erb :"places/show"
+      else
+        flash[:message] = "You do not have access to requested record."
+        redirect "/users/#{current_user.id}"
+      end
     else
       flash[:message] = "Must log in to continue."
       redirect "/"
@@ -77,9 +82,14 @@ class PlacesController < ApplicationController
   get '/places/:id/edit' do
     if logged_in?
       @place = Place.find(params[:id])
-      @recommendations = current_user.recommendations.all.uniq
-      @categories = current_user.categories.all.uniq
-      erb :"places/edit"
+      if user_places.include?(@place)
+        @recommendations = current_user.recommendations.all.uniq
+        @categories = current_user.categories.all.uniq
+        erb :"places/edit"
+      else
+        flash[:message] = "You do not have access to requested record."
+        redirect "/users/#{current_user.id}"
+      end
     else
       flash[:message] = "Must log in to continue."
       redirect "/"
