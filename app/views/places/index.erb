@@ -2,7 +2,7 @@
 
 <h3>Visited Status:</h3>
 <div class="statusbar">
-  <div class="statusfill" style="height:24px; background-color: green; width: <%=(user_places.select{|pl| pl.visited==1}.length.to_f/user_places.length.to_f).ceil(3)*100%>%"></div>
+  <div class="statusfill" style="height:24px; <%if @status<34%>background-color: #cb1010 <%elsif @status<67%>background-color: #ecd318 <%else%> background-color:green<%end%>; width: <%=@status%>%"></div>
 </div>
 
 <form action="/places/new">

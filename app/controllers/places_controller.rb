@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
 
   get '/places' do
     if logged_in?
+      @status = (user_places.select{|pl| pl.visited==1}.length.to_f/user_places.length.to_f)*100
       erb :"places/index"
     else
       flash[:message] = "Must log in to continue."
