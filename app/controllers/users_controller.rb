@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
 
   get "/users/:id" do
-    @user = User.find(params[:id])
-    erb :"users/show"
+    if logged_in?
+      @user = User.find(params[:id])
+      if @user.id == current_user.id
+        erb :"users/show"
+      else
+        erb :"users/failure"
+      end
+    else
+      flash[:message] = "Not currently logged in. Please log in to continue."
+      redirect '/login'
+    end
   end
   
   get "/users/:id/change_password" do
