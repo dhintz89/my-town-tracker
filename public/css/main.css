@@ -60,6 +60,11 @@ h2 {
   padding-left: 0.2em;
 }
 
+h3 {
+  font-size: 1.5em;
+  text-decoration: underline;
+  font-style: italic;
+}
 nav {
   color: black;
   font-size: 1em;

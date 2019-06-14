@@ -1,16 +1,16 @@
 <h2>Create New Place</h2>
 
 <form method="post" action="/places">
-  <h2><u>General Info</u></h2>
+  <h3>General Info</h3>
   
   <p><input type="text" name="place[name]" placeholder="Place Name (required)"></p>
   
   <br>
   
   <label>Select a Category</label>
-  <% @categories.each do |cat| %>
-    <p><input type="radio" name="place[category_id]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input></p>
-  <% end %>
+  <p><% @categories.each do |cat| %>
+    <input type="radio" name="place[category_id]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input>
+  <% end %></p>
   <p><label for="category[name]">Or Create a New Category: </label>
   <input type="text" name="category[name]" placeholder="Category Name"></p>
   
@@ -30,12 +30,12 @@
   <br>
   <br>
   
-  <h2><u>Notes</u></h2>
+  <h3>Notes</h3>
   
   <label>Recommend For:</label>
-  <% @recommendations.each do |rec| %>
-    <p><input type="checkbox" name="place[recommendation_ids][]" value="<%=rec.id%>"><label><%=rec.name%></label></input></p>
-  <% end %>
+  <p><% @recommendations.each do |rec| %>
+    <input type="checkbox" name="place[recommendation_ids][]" value="<%=rec.id%>"><label><%=rec.name%></label></input>
+  <% end %></p>
   <p><label for="recommendation[name]">And/Or Create a New Recommendation: </label>
   <input type="text" name="recommendation[name]" placeholder="Recommendation Name"></p>
   
