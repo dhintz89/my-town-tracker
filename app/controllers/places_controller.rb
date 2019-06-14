@@ -112,9 +112,14 @@ class PlacesController < ApplicationController
   
   post '/places/:id/delete' do
     @place = Place.find(params[:id])
-    @place.destroy
-    flash[:message] = "#{@place.name} has been deleted."
-    redirect "/places"
+    if user_places.include?(@place)
+      @place.destroy
+      flash[:message] = "#{@place.name} has been deleted."
+      redirect "/places"
+    else
+      flash[:message] = "You do not have access to requested record."
+      redirect "/places"
+    end
   end
   
   helpers do
