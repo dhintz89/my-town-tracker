@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   get "/users/:id" do
     if logged_in?
       @user = User.find(params[:id])
-      if @user.id == current_user.id
+      if @user == current_user
         erb :"users/show"
       else
         erb :"users/failure"
@@ -16,12 +16,22 @@ class UsersController < ApplicationController
   
   get "/users/:id/change_password" do
     @user = User.find(params[:id])
-    erb :"users/change_password"
+    if @user == current_user
+      erb :"users/change_password"
+    else
+      flash[:message] = "Not logged in as requested user."
+      redirect "/users/#{current_user.id}"
+    end
   end
   
   get "/users/:id/edit" do
     @user = User.find(params[:id])
-    erb :"users/edit"
+    if @user == current_user
+      erb :"users/edit"
+    else
+      flash[:message] = "Not logged in as requested user."
+      redirect "/users/#{current_user.id}" 
+    end
   end
   
   patch "/users/:id" do
