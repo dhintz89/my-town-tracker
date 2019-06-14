@@ -1,7 +1,5 @@
 <h2>Edit <%= @place.name %></h2>
 
-<br>
-
 <form method="post" action="/places/<%=@place.id%>">
   <input type="hidden" id="hidden" name="_method" value="patch">
   <h2><u>General Info</u></h2>
