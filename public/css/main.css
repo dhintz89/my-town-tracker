@@ -15,6 +15,7 @@ html, body {
   flex-direction: column;
   width: 80vw;
   margin: auto;
+  padding-bottom: 15px;
 }
 
 header {

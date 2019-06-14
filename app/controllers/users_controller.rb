@@ -15,22 +15,32 @@ class UsersController < ApplicationController
   end
   
   get "/users/:id/change_password" do
-    @user = User.find(params[:id])
-    if @user == current_user
-      erb :"users/change_password"
+    if logged_in?
+      @user = User.find(params[:id])
+      if @user == current_user
+        erb :"users/change_password"
+      else
+        flash[:message] = "Not logged in as requested user."
+        redirect "/users/#{current_user.id}"
+      end
     else
-      flash[:message] = "Not logged in as requested user."
-      redirect "/users/#{current_user.id}"
+      flash[:message] = "Not currently logged in. Please log in to continue."
+      redirect '/login'
     end
   end
   
   get "/users/:id/edit" do
-    @user = User.find(params[:id])
-    if @user == current_user
-      erb :"users/edit"
+    if logged_in?
+      @user = User.find(params[:id])
+      if @user == current_user
+        erb :"users/edit"
+      else
+        flash[:message] = "Not logged in as requested user."
+        redirect "/users/#{current_user.id}" 
+      end
     else
-      flash[:message] = "Not logged in as requested user."
-      redirect "/users/#{current_user.id}" 
+      flash[:message] = "Not currently logged in. Please log in to continue."
+      redirect '/login'
     end
   end
   

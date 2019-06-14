@@ -1,13 +1,23 @@
 class PlacesController < ApplicationController
 
   get '/places' do
-    erb :"places/index"
+    if logged_in?
+      erb :"places/index"
+    else
+      flash[:message] = "Must log in to continue."
+      redirect "/"
+    end
   end
   
   get '/places/new' do
-    @recommendations = current_user.recommendations.all.uniq
-    @categories = current_user.categories.all.uniq
-    erb :"places/new"
+    if logged_in?
+      @recommendations = current_user.recommendations.all.uniq
+      @categories = current_user.categories.all.uniq
+      erb :"places/new"
+    else
+      flash[:message] = "Must log in to continue."
+      redirect "/"
+    end
   end
   
   post '/places' do
@@ -23,9 +33,14 @@ class PlacesController < ApplicationController
   end
   
   get '/places/filter' do
-    @recommendations = current_user.recommendations.all.uniq
-    @categories = current_user.categories.all.uniq
-    erb :"places/filters"
+    if logged_in?
+      @recommendations = current_user.recommendations.all.uniq
+      @categories = current_user.categories.all.uniq
+      erb :"places/filters"
+    else
+      flash[:message] = "Must log in to continue."
+      redirect "/"
+    end
   end
   
   post '/places/filter' do 
@@ -50,15 +65,25 @@ class PlacesController < ApplicationController
   end
   
   get '/places/:id' do
-    @place = Place.find(params[:id])
-    erb :"places/show"
+    if logged_in?
+      @place = Place.find(params[:id])
+      erb :"places/show"
+    else
+      flash[:message] = "Must log in to continue."
+      redirect "/"
+    end
   end
   
   get '/places/:id/edit' do
-    @place = Place.find(params[:id])
-    @recommendations = current_user.recommendations.all.uniq
-    @categories = current_user.categories.all.uniq
-    erb :"places/edit"
+    if logged_in?
+      @place = Place.find(params[:id])
+      @recommendations = current_user.recommendations.all.uniq
+      @categories = current_user.categories.all.uniq
+      erb :"places/edit"
+    else
+      flash[:message] = "Must log in to continue."
+      redirect "/"
+    end
   end
   
   patch '/places/:id' do
