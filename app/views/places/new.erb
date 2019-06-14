@@ -2,12 +2,12 @@
 
 <form method="post" action="/places">
   <h3>General Info</h3>
-  
-  <p><input type="text" name="place[name]" placeholder="Place Name (required)"></p>
+   <p><label for="place[name]">Place Name: </label>
+   <input type="text" name="place[name]" placeholder="Place Name (required)"></p>
   
   <br>
   
-  <label>Select a Category</label>
+  <label>Select a Category:</label>
   <p><% @categories.each do |cat| %>
     <input type="radio" name="place[category_id]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input>
   <% end %></p>
@@ -41,7 +41,7 @@
   
   <br>
   
-  <p><label for="place[tagline]">Enter a short tagline for this place.</label>
+  <p><label for="place[tagline]">Enter a short tagline for this place</label>
   <input type="text" name="place[tagline]" placeholder="Tagline for Place"></p>
   <p><label for="place[notes]">Additional Notes</label>
   <input type="text" name="place[notes]" placeholder="Other Notes"></p>

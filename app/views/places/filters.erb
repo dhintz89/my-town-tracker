@@ -6,13 +6,13 @@
   <input type="radio" name="visited" value="0" id="no"><label for="no">Not Visited</label>
   
   <h3>Filter by Category(s)</h3>
-  <h5>*results include <u>any</u> selected categories</h5>
+  <h5 class="subnote">*results include <u>any</u> selected categories</h5>
   <% @categories.each do |cat| %>
     <input type="checkbox" name="category_ids[]" value="<%=cat.id%>" id="<%=cat.id%>"><label for="<%=cat.id%>"><%=cat.name%></label></input>
   <% end %>
   
   <h3>Filter by Recommendation(s)</h3>
-  <h5>*results must contain <u>all</u> selected recommendations</h5>
+  <h5 class="subnote">*results must contain <u>all</u> selected recommendations</h5>
   <% @recommendations.each do |rec| %>
     <input type="checkbox" name="recommendation_ids[]" value="<%=rec.id%>" id="<%=rec.id%>"><label for="<%=rec.id%>"><%=rec.name%></label></input>
   <% end %>

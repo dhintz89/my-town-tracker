@@ -95,6 +95,18 @@ nav {
   display: inline;
 }
 
+.subnote {
+  position: relative;
+  bottom: 20px;
+  margin: 0;
+  padding: 0;
+}
+
 #oneline_inst {
+  font-size: 1.5em;
   margin-left: 4%;
+}
+
+#logout {
+  margin-top: 1%;
 }

@@ -1,26 +1,25 @@
 <h2>Welcome <%= current_user.name %>!</h2>
 
 <h3>Quick Actions:</h3>
-<form action="/places/new">
+<form class="button" action="/places/new">
   <input type="submit" value="New Place">
 </form>
 
-<form action="/places">
+<form class="button" action="/places">
   <input type="submit" value="View My Places">
 </form>
 
 
 <br>
 <h3>Manage Your Account:</h3>
-<form action="/users/<%=current_user.id%>/change_password">
+<form class="button" action="/users/<%=current_user.id%>/change_password">
   <input type="submit" value="Change My Password">
 </form>
 
-<form action="/users/<%=current_user.id%>/edit">
+<form class="button" action="/users/<%=current_user.id%>/edit">
   <input type="submit" value="Edit my Profile">
 </form>
 
-</form>
-<form action="/logout">
+<form id="logout" action="/logout">
   <input type="submit" value="Log Out">
 </form>
