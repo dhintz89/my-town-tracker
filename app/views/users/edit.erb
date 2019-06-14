@@ -1,16 +1,16 @@
 <h2>Edit Profile</h2>
-<br>
 
 <form action="/users/<%=@user.id%>" method="post">
   <input type='hidden' name='_method' value='patch'>
-  <h3><label for="current_password">Please confirm your password</label>
-  <input type="password" name="current_password" placeholder="current password"></h3>
+  <h4><label for="current_password">Please confirm your password:</label>
+  <input type="password" name="current_password" placeholder="current password"></h4>
   <br>
   
   
-  <input type='text' name=[user][username] value="<%=@user.username%>">
-  <input type='text' name=[user][name] value="<%=@user.name%>">
-  <input type='text' name=[user][email] value="<%=@user.email%>">
-  <input type='text' name=[user][city] value="<%=@user.city%>">
+  <label>Change profile details:</label>
+  <p><input type='text' name=[user][username] value="<%=@user.username%>">
+  <input type='text' name=[user][name] placeholder="Enter Name" value="<%=@user.name%>">
+  <input type='text' name=[user][email] placeholder="Enter Email" value="<%=@user.email%>">
+  <input type='text' name=[user][city] placeholder="Enter Hometown" value="<%=@user.city%>"></p>
   <input type="submit" value="submit">
 </form>
