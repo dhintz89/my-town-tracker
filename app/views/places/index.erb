@@ -1,5 +1,10 @@
 <h2>My Places</h2>
 
+<h3>Visited Status:</h3>
+<div class="statusbar">
+  <div class="statusfill" style="height:24px; background-color: green; width: <%=(user_places.select{|pl| pl.visited==1}.length.to_f/user_places.length.to_f).ceil(3)*100%>%"></div>
+</div>
+
 <form action="/places/new">
   <input type="submit" value="New Place">
 </form>

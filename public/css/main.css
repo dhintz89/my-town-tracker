@@ -58,3 +58,9 @@ nav {
   border: 2px solid white;
   box-shadow: -5px 6px 8px 4px #e8e8e8;
 }
+
+.statusbar {
+  background-color: rgb(200, 200, 200);
+  height: 24px;
+  width: 40%
+}
