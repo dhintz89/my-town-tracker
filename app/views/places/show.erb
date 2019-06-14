@@ -32,6 +32,9 @@
   <%=@place.notes%></p>
 <% end %>
 
+<form action="/places/<%=@place.id%>/edit">
+  <input type="submit" value="Edit <%=@place.name%>">
+</form>
 
 <form action="/places/<%=@place.id%>/delete" method="post">
   <input type="hidden" id="hidden" name="_method" value="delete">
