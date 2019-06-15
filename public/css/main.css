@@ -94,6 +94,20 @@ nav {
   padding: 0;
 }
 
+.notepad {
+  background-color: #edefaf;
+  border: 3px white solid;
+  max-width: 28em;
+  box-shadow: .5px 6px 5px #000;
+  margin-top: 2%;
+  padding: 1.5%;
+}
+
+.center {
+  position: relative;
+  left: 7em;
+}
+
 #oneline_inst {
   font-size: 1.5em;
   margin-left: 4%;
