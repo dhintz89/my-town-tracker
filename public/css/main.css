@@ -65,12 +65,17 @@ nav {
 }
 
 .tagline {
-  background-color: #edefaf;
-  font: italic bold 3em 'Tangerine', cursive, serif;
+  background-color: #ffcd61;
+  width: 150px;
+  height: 100px;
+  font: italic bold 2.5em 'Tangerine', cursive, serif;
+  line-height: 60px;
   color:black;
   float: right;
-  border: 2px solid white;
-  box-shadow: -5px 6px 8px 4px #e8e8e8;
+  border: 2px solid #f5ead1;
+  box-shadow: 1px 5px 5px 4px gray;
+  position: relative;
+  top: 90px;
 }
 
 .statusbar {
