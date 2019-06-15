@@ -57,25 +57,33 @@ h3 {
   text-decoration: underline;
   font-style: italic;
 }
+
 nav {
   color: black;
   font-size: 1em;
   margin: 0;
-  padding: .8em 0 0 .5em;
+  padding: 0.6em 0 0 .5em;
 }
 
 .tagline {
   background-color: #ffcd61;
   width: 150px;
   height: 100px;
-  font: italic bold 2.5em 'Tangerine', cursive, serif;
-  line-height: 60px;
+  font: italic bold 2.4em 'Tangerine', cursive, serif;
+  line-height: 100px;
+  vertical-align: middle;
   color:black;
   float: right;
   border: 2px solid #f5ead1;
   box-shadow: 1px 5px 5px 4px gray;
   position: relative;
   top: 90px;
+}
+
+.tagtext {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .statusbar {

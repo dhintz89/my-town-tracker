@@ -3,8 +3,9 @@
   <h2><%=@place.name%> <h5 id="inline_note">- <%=Category.find(@place.category_id).name%></h5></h2>
   <h5><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
   
-  <span class="tagline"><%="\"#{@place.tagline}\""%></span>
-  <br>
+  <div class="tagline">
+    <span class="tagtext"><%="\"#{@place.tagline}\""%></span>
+  </div>
   
   <span>
     <%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
@@ -26,7 +27,6 @@
       <% end %>
     </p>
   </span>
-  <br>
   
   <% if !@place.notes.empty? %>
     <p>Also:<br>
