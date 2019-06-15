@@ -42,8 +42,8 @@
   
   <br>
   
-  <p><label for="place[tagline]">Enter a short tagline for this place.</label>
-  <input type="text" name="place[tagline]" value="<%=@place.tagline%>"></p>
+  <p><label for="place[tagline]">Enter a short (20 char) tagline for this place.</label>
+  <input type="text" name="place[tagline]" maxlength="20" value="<%=@place.tagline%>"></p>
   <p><label for="place[notes]">Additional Notes</label>
   <input type="text" name="place[notes]" value="<%=@place.notes%>"></p>
   
