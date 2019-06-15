@@ -2,8 +2,8 @@
 
 <ul class="indexList">
   <% @results.each do |place| %>
-    <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
-      <%= place.category.name %><br>
+    <a id="placelink" href="/places/<%=place.id%>"><div class="notepad reduce"><p><t><%= place.name %></t>  -  <i>"<%= place.tagline %>"</i><br>
+      <%= place.category.name %></p>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
       Recommendations:
       <ul>
@@ -11,7 +11,7 @@
           <li><%=rec.name%></li>
         <% end %>
       </ul>
-    </li>
+    </div></a>
     <br>
   <% end %>
 </ul>
