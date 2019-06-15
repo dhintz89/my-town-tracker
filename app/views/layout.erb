@@ -18,11 +18,11 @@
         <nav>
           <% if logged_in? %>
             <a href=<%= "/users/#{current_user.id}" %>>Home</a>
+              > 
+            <a href="/places">My Places</a>
           <% else %>
             <a href="/">Home</a>
           <% end %>
-           > 
-          <a href="/places">My Places</a>
         </nav>
       </header>
       

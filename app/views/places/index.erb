@@ -1,6 +1,6 @@
 <h2>My Places</h2>
 
-<label>Quick Actions:</label><br>
+<h3>Quick Actions:</h3>
 <form class="button" action="/places/new">
   <input type="submit" value="New Place">
 </form>
@@ -15,9 +15,10 @@
   <div class="statusfill" style="height:24px; <%if @status<34%>background-color: #cb1010 <%elsif @status<67%>background-color: #ecd318 <%else%> background-color:green<%end%>; width: <%=@status%>%"></div>
 </div>
 
+<h3>My Places:</h3>
 <ul class="indexList">
   <% user_places.each do |place| %>
-    <li id="placeLink"><a href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
+    <div class="notepad"><a id="placelink" href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
       <%= place.category.name %><br>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
       Recommendations:
@@ -26,7 +27,7 @@
           <li><%=rec.name%></li>
         <% end %>
       </ul>
-    </li>
+    </div>
     <br>
   <% end %>
 </ul>

@@ -77,7 +77,8 @@ nav {
   border: 2px solid #f5ead1;
   box-shadow: 1px 5px 5px 4px gray;
   position: relative;
-  top: 90px;
+  top: -20px;
+  left: 50px;
 }
 
 .tagtext {
@@ -118,12 +119,18 @@ nav {
 
 .center {
   position: relative;
-  left: 7em;
+  left: 5em;
+  bottom: 2.8em;
+  margin: 1em;
 }
 
 #oneline_inst {
   font-size: 1.5em;
   margin-left: 4%;
+}
+
+#placelink {
+  font-size: 1.3em;
 }
 
 #logout {
