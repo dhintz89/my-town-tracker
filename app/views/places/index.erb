@@ -18,7 +18,7 @@
 <h3>My Places:</h3>
 <ul class="indexList">
   <% user_places.each do |place| %>
-    <div class="notepad"><a id="placelink" href="/places/<%=place.id%>"><%= place.name %></a>  -  <i>"<%= place.tagline %>"</i><br>
+    <a id="placelink" href="/places/<%=place.id%>"><div class="notepad reduce"><p><t><%= place.name %></t>  -  <i>"<%= place.tagline %>"</i></p>
       <%= place.category.name %><br>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
       Recommendations:
@@ -27,7 +27,7 @@
           <li><%=rec.name%></li>
         <% end %>
       </ul>
-    </div>
+    </div></a>
     <br>
   <% end %>
 </ul>

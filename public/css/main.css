@@ -65,6 +65,12 @@ nav {
   padding: 0.6em 0 0 .5em;
 }
 
+t {
+  font-size: 1.3em;
+  text-decoration: underline;
+  font-family: 'Indie Flower', cursive, serif;
+}
+
 .tagline {
   background-color: #ffcd61;
   width: 150px;
@@ -117,6 +123,11 @@ nav {
   padding: 1.5%;
 }
 
+.notepad.reduce {
+  max-width: 15em;
+  padding-top: 0;
+}
+
 .center {
   position: relative;
   left: 5em;
@@ -130,7 +141,8 @@ nav {
 }
 
 #placelink {
-  font-size: 1.3em;
+  color: black;
+  text-decoration: none;
 }
 
 #logout {
