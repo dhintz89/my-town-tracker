@@ -18,7 +18,7 @@
 <h3>My Places:</h3>
 <ul class="indexList">
   <% user_places.each do |place| %>
-    <a id="placelink" href="/places/<%=place.id%>"><div class="notepad reduce"><p><t><%= place.name %></t>  -  <i>"<%= place.tagline %>"</i>
+    <a id="placelink" href="/places/<%=place.id%>"><div class="notepad reduce"><p><t class="placename"><%= place.name %></t>  -  <i>"<%= place.tagline %>"</i>
       <%= place.category.name %><br></p>
       Visited: <%=place.visited == 1 ? ("Yes"):("No")%><br>
       Recommendations:

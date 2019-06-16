@@ -1,7 +1,7 @@
   <!--Title and Subtitle on same line (Title - Category)-->
 <div class="notepad">  
-  <h2><%=@place.name%> <h5 id="inline_note">- <%=Category.find(@place.category_id).name%></h5></h2>
-  <h5><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
+  <t id="mockheader"><%=@place.name%></t> <t id="inline_note">&#8211; <%=Category.find(@place.category_id).name%></t>
+  <h5 id="addressline"><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
   
   <div class="tagline">
     <span class="tagtext"><%="\"#{@place.tagline}\""%></span>
@@ -11,7 +11,7 @@
     <%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
     
     <p>
-      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because it's:
+      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because it's:<br>
       <% if @place.recommendations.length > 1 %>
         <% @place.recommendations.each do |rec| %>
           <% if rec!=@place.recommendations.last %>
@@ -30,8 +30,9 @@
   
   <% if !@place.notes.empty? %>
     <p>Also:<br>
-    <%=@place.notes%></p>
-  <% end %>
+    <%=@place.notes%>
+  <% end %></p>
+  <br>
 </div>
 <br>
 

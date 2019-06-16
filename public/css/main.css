@@ -65,26 +65,21 @@ nav {
   padding: 0.6em 0 0 .5em;
 }
 
-t {
-  font-size: 1.3em;
-  text-decoration: underline;
-  font-family: 'Indie Flower', cursive, serif;
-}
-
 .tagline {
   background-color: #ffcd61;
-  width: 150px;
+  width: 175px;
   height: 100px;
   font: italic bold 2.4em 'Tangerine', cursive, serif;
+  text-align: center;
   line-height: 100px;
   vertical-align: middle;
   color:black;
   float: right;
   border: 2px solid #f5ead1;
-  box-shadow: 1px 5px 5px 4px gray;
+  box-shadow: 0px 18px 10px 0px gray;
   position: relative;
-  top: -20px;
-  left: 50px;
+  top: -45px;
+  left: 8px;
 }
 
 .tagtext {
@@ -131,13 +126,40 @@ t {
 .center {
   position: relative;
   left: 5em;
-  bottom: 2.8em;
+  bottom: 3.1em;
   margin: 1em;
+}
+
+.placename {
+  font-size: 1.3em;
+  text-decoration: underline;
+  font-family: 'Indie Flower', cursive, serif;
 }
 
 #oneline_inst {
   font-size: 1.5em;
   margin-left: 4%;
+}
+
+#mockheader {
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+#inline_note {
+  font-size: 0.8em;
+  text-decoration: none;
+  font-style: italic;
+  position: relative;
+  left: 0.8em;
+  bottom: 0.2em;
+}
+
+#addressline {
+  position: relative;
+  bottom: 1em;
 }
 
 #placelink {
