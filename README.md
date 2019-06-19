@@ -1,58 +1,49 @@
-# my-town-tracker
+# My Town Tracker
 
-My Town Tracker
-Sinatra Web Application that tracks info about places you've been and/or want to go
+Welcome to My Town Tracker! This is a Sinatra Web Application that tracks info about places you've been and/or want to go. Keep track of restaurants, attractions, parks, or any other places you're interested in.  
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Prerequisites
-What things you need to install the software and how to install them
+## Installation (update)
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+Add this line to your application's Gemfile:
 
-Say what the step will be
+```ruby
+gem 'local_events'
+```
 
-Give the example
-And repeat
+And then execute:
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+    $ bundle
 
-Running the tests
-Explain how to run the automated tests for this system
+Or install it yourself as:
 
-Break down into end to end tests
-Explain what these tests test and why
+    $ gem install local_events
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+## Usage
 
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+To get started using My-Town-Tracker: 
+ 1. Login or create a new account.
+ 2. If you want to check out the places you've already entered, click "View My Places." You'll see a list of places and a status bar showing how many you've previously visited vs. how many are still on your to-go list.
+ 3. You can then filter your list to hunt for places fitting specific criteria.
+ 4. Once you find a place you're interested in, click it and you'll see any info you've entered for that place.
+ 5. You can also Edit or Delete the record from this show page.
+ 6. To enter a new place, click "New Place" from the User Home Page or Places Page.
+ 7. Enter any and all information that you have available then click "Create Place."  
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+## Development (udpdate)
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+## Contributing
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Bug reports and pull requests are welcome on GitHub at https://github.com/'dhintz89'/my-town-tracker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the my-town-tracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'dhintz89'/local_events/blob/master/CODE_OF_CONDUCT.md).
