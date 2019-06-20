@@ -67,7 +67,7 @@ nav {
 
 .tagline {
   background-color: #ffcd61;
-  width: 175px;
+  width: 200px;
   height: 100px;
   font: italic bold 2.4em 'Tangerine', cursive, serif;
   text-align: center;
@@ -79,7 +79,7 @@ nav {
   box-shadow: 0px 18px 10px 0px gray;
   position: relative;
   top: -35px;
-  left: 8px;
+  left: 10px;
 }
 
 .tagtext {

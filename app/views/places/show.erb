@@ -11,7 +11,7 @@
     <%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
     
     <p>
-      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because it's:<br>
+      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because of the great:<br>
       <% if @place.recommendations.length > 1 %>
         <% @place.recommendations.each do |rec| %>
           <% if rec!=@place.recommendations.last %>
