@@ -1,4 +1,3 @@
-  <!--Title and Subtitle on same line (Title - Category)-->
 <div class="notepad">  
   <t id="mockheader"><%=@place.name%></t> <t id="inline_note">&#8211; <%=Category.find(@place.category_id).name%></t>
   <h5 id="addressline"><%="#{@place.street_address}, #{@place.city}, #{@place.state_abbr}"%></h5>
@@ -11,7 +10,7 @@
     <%= @place.visited==1 ? ("I've been here before!"):("I still need to check this place out") %>
     
     <p>
-      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because of the great:<br>
+      <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because:<br>
       <% if @place.recommendations.length > 1 %>
         <% @place.recommendations.each do |rec| %>
           <% if rec!=@place.recommendations.last %>

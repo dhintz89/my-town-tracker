@@ -51,7 +51,6 @@ class UsersController < ApplicationController
       if @user.authenticate(params[:current_password]) && params[:new_password]==params[:confirm_password]
         @user.update(password: params[:new_password])
         @user.save
-        # password not actually changing
         flash[:message] = "Password successfully changed"
         redirect "/users/#{@user.id}"
       else
