@@ -11,19 +11,21 @@
     
     <p>
       <%= @place.visited==1 ? ("I"):("I'd")%> like to go here because:<br>
-      <% if @place.recommendations.length > 1 %>
-        <% @place.recommendations.each do |rec| %>
-          <% if rec!=@place.recommendations.last %>
-            <%="#{rec.name}, "%>
-          <% else %>
-            <%="and #{rec.name}"%>
-          <% end %>
-        <% end %>
-      <% elsif @place.recommendations.length == 1 %>
-        <%= @place.recommendations.first.name %>
-      <% else %>
-        a totally new place to see
-      <% end %>
+      <%= @place.list_recommendations%>
+      
+      <!--<% if @place.recommendations.length > 1 %>
+      <!--  <% @place.recommendations.each do |rec| %>-->
+      <!--    <% if rec!=@place.recommendations.last %>-->
+      <!--      <%="#{rec.name}, "%>-->
+      <!--    <% else %>-->
+      <!--      <%="and #{rec.name}"%>-->
+      <!--    <% end %>-->
+      <!--  <% end %>-->
+      <!--<% elsif @place.recommendations.length == 1 %>-->
+      <!--  <%= @place.recommendations.first.name %>-->
+      <!--<% else %>-->
+      <!--  a totally new place to see-->
+      <!--<% end %>-->
     </p>
   </span>
   

@@ -1,13 +1,9 @@
 class PlacesController < ApplicationController
 
   get '/places' do
-    if logged_in?
-      @status = (user_places.select{|pl| pl.visited==1}.length.to_f/user_places.length.to_f)*100
-      erb :"places/index"
-    else
-      flash[:message] = "Must log in to continue."
-      redirect "/"
-    end
+    redirect_if_not_logged_in
+    @status = (user_places.select{|pl| pl.visited==1}.length.to_f/user_places.length.to_f)*100
+    erb :"places/index"
   end
   
   get '/places/new' do
@@ -45,10 +41,11 @@ class PlacesController < ApplicationController
   end
   
   post '/places/filter' do 
+    # Use SQL for filters
     if params[:visited]
       @results = user_places.select {|pl| pl.visited==params[:visited].to_i}
     else
-      @results = user_places
+      @results = user_places.to_a
     end
 
     if params[:category_ids]
@@ -99,6 +96,10 @@ class PlacesController < ApplicationController
   
   patch '/places/:id' do
     @place = Place.find(params[:id])
+    if !logged_in? || !current_user.places.include?(@place) 
+      flash[:message] = "You do not have access to requested record."      
+      redirect "/users/#{current_user.id}"
+    end
     @place.update(params[:place])
     if !params[:category][:name].empty?
       @place.category = Category.find_or_create_by(name: params[:category][:name])
@@ -111,7 +112,7 @@ class PlacesController < ApplicationController
     redirect "/places/#{@place.id}"    
   end
   
-  post '/places/:id/delete' do
+  delete '/places/:id/delete' do
     @place = Place.find(params[:id])
     if user_places.include?(@place)
       @place.destroy
@@ -124,17 +125,17 @@ class PlacesController < ApplicationController
   end
   
   helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-    
-    def current_user
-      User.find(session[:user_id])
-    end
-    
     def user_places
       current_user.places.all
     end
+    
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:message] = "Must log in to continue."
+        redirect "/"
+      end
+    end
+      
   end
   
 end
